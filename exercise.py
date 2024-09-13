@@ -115,14 +115,17 @@ def calculate_dog_years():
         return
     dog_age = int(dog_age_input)
 
-    if dog_age == 1:
-        dog_years = 10
-        print(f'The dog\'s age in dog years is {dog_years}')
+    if dog_age == 0:
+        print(f'The dog\'s age in dog years is 0')
+    elif dog_age == 1:
+        print(f'The dog\'s age in dog years is 10')
     elif dog_age == 2:
-        dog_years = 20
-    else:
-        dog_years= 20 + (dog_age - 2) * 7 
+        print(f'The dog\'s age in dog years is 20')
+    elif dog_age > 2:
+        dog_years= (dog_age - 2) * 7 + 20
         print(f'The dog\'s age in dog years is {dog_years}')
+    else:
+        print('Invalid entry. Please enter a positive number for age.')
 
 # Call the function
 calculate_dog_years()
