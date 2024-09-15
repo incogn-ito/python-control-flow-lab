@@ -245,12 +245,15 @@ def guess_number():
     # Your control flow logic goes here
     for attempt in range(1, max_attempts + 1):
         
-        guess_input = input(f"Guess {attempt}: Guess a number between 1 and 100")
+        guess_input = input(f"Guess {attempt}: Guess a number between 1 and 100: ")
         
-        if not guess_input.isnumeric() or int(guess_input) < 0 or int(guess_input) > 100:
-            print("Invalid entry. Please guess a positive number between 1 and 100.")
+        if not guess_input.isnumeric():
+            print("Invalid entry. Please guess a number between 1 and 100.")
 
         guess = int(guess_input)
+
+        if guess < 1 or guess > 100:
+            print("Invalid entry. Please guess a positive number between 1 and 100.")
 
         if guess == correct_number:
             print("Congrats! you guessed correctly!")
@@ -260,11 +263,10 @@ def guess_number():
         else: 
             print("Guess is too high!")
             
-        if max_attempts == 5:
+        if attempt == max_attempts - 1:
             print("Last chance!")
-        else:
-            print("Sorry, you failed to guess the number in 5 attempts")
-    
+    else:
+        print("Sorry, you failed to guess the number in 5 attempts")
 
 
 # Call the function
